@@ -34,4 +34,23 @@ Before setting up the project, ensure you have the following installed:
 
 1. Clone this repository to your local machine:
    ~~~bash
+   git clone https://github.com//fardeenfarrukh/Blog-Platform.git
+   ~~~
+2. Navigate to the project directory:
+   ~~~bash
+   cd Blog-Platform
+   ~~~
+3. pip install -r requirements.txt
+
+## Running the Application
+
+1. Start Flask:
+   ~~~bash
+   python app.ipynb
+   ~~~
+2. Open HTTP://127.0.0.1.5000 in your browser.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/
    
