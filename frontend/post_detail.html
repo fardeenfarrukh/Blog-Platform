@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Post Detail</title>
+	<link rel="stylesheet" href="../frontend/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Blog Platform</h1>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/login">Login</a>
+			<a href="/register">Register</a>
+		</nav>
+	</header>
+	<main>
+		<div class="post-detail">
+			<h2>{{ post.title }}</h2>
+			<p>Posted on: <strong>{{ post.created_at.strftime('%B %d, %Y') }}</strong></p>
+			<p>{{ post.content }}</p>
+		</div>
+		
+		<h3>Comments</h3>
+		<div class="comment-list">
+			{% for comment in comments %}
+			<div class="comment-item">	
+				<p><strong>User {{ comment.user_id }}:</strong> {{ comment.comment }}</p>
+			</div>
+			{% endfor %}
+		</div>
+
+		<h3>Add a Comment</h3>
+		<form action="/add_comment/{{ post.post_id) }}" method="POST">
+			<textarea name="comment" rows="4" placeholder="Your comment goes here..." required></textarea>
+			<br>
+			<button type="submit">Submit Comment</button>
+		</form>
+	</main>
+	
+	<footer>
+		<p>&copy; 2024 Blog Platform. All Rights Reserved.</p>
+	</footer>
+</body>
+</html>

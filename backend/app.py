@@ -92,7 +92,7 @@ with app.app_context():
 @app.route('/')
 def index():
     posts = Post.query.all()
-    return render_template('index.html', posts=posts)
+    return render_template('../frontend/index.html', posts=posts)
 
 
 # In[21]:

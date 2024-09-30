@@ -4,9 +4,9 @@ drop table users;
 drop table posts;
 drop table comments;
 drop table tags;
-drop table posts_tags;
+drop table post_tags;
 CREATE TABLE users (
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE posts (
-    post_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    post_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     author_id INTEGER REFERENCES users(user_id),
@@ -24,18 +24,18 @@ CREATE TABLE posts (
     tags TEXT
 );
 CREATE TABLE comments (
-    comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    comment_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     post_id INTEGER REFERENCES posts(post_id),
     user_id INTEGER REFERENCES users(user_id),
     comment TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE tags (
-    tag_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tag_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     tag_name VARCHAR(100) UNIQUE NOT NULL
 );
 CREATE TABLE post_tags (
-    post_tag_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    post_tag_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     post_id INTEGER REFERENCES posts(post_id),
     tag_id INTEGER REFERENCES tags(tag_id)
 );
